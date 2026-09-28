@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <title>Heartfelt Home - Mobile Salon Services</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💅</text></svg>" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💅</text></svg>" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ─── RESET & BASE ─── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: rgba(255, 209, 220, 0.12);
+            min-height: 100vh;
+            color: #1a1a1a;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* ─── BACKGROUND ─── */
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('pink-butterflies.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            opacity: 0.35;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ─── SPARKLE CANVAS ─── */
+        #sparkleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ─── TYPOGRAPHY ─── */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 15px 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+            letter-spacing: 1px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .nav-links li {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #555;
+            padding: 6px 14px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            -webkit-touch-callout: none;
+            user-select: none;
+        }
+        .nav-links li:hover, .nav-links li.active {
+            color: #fff;
+            background: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
+            box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
+        }
+        .nav-links li:active {
+            transform: scale(0.95);
+        }
+
+        /* ─── TAB CONTENT ─── */
+        .tab-content {
+            display: none;
+            padding: 130px 20px 60px;
+            flex-grow: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            z-index: 2;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            text-align: center;
+            background: transparent;
+            border-radius: 0;
+            padding: 60px 20px 50px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 3.4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 20px rgba(255, 255, 255, 0.7);
+            letter-spacing: -0.5px;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #1a1a1a;
+            line-height: 1.8;
+            font-weight: 500;
+            text-shadow: 0 1px 12px rgba(255, 255, 255, 0.85), 0 0 30px rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.25);
+            padding: 16px 28px;
+            border-radius: 20px;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* ─── SECTION TITLES ─── */
+        .section-title {
+            text-align: center;
+            font-size: 2.6rem;
+            margin-bottom: 40px;
+            color: #6a1b9a;
+            font-weight: 700;
+            position: relative;
+            text-shadow: 0 2px 12px rgba(255, 255, 255, 0.9);
+            margin-top: 50px;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
+            margin: 12px auto 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(255, 64, 129, 0.3);
+        }
+        .section-subtitle-center {
+            text-align: center;
+            max-width: 700px;
+            margin: -28px auto 40px;
+            color: #222;
+            font-size: 1rem;
+            font-weight: 500;
+            text-shadow: 0 1px 10px rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+        }
+
+        /* ─── MASONRY POSTER GALLERY (NO CROPPING) ─── */
+        .poster-grid {
+            column-count: 3; /* Creates a masonry layout */
+            column-gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 10px;
+        }
+
+        .poster-card {
+            break-inside: avoid; /* Prevents posters from breaking across columns */
+            margin-bottom: 25px;
+            perspective: 1000px;
+            border-radius: 20px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+        }
+
+        .poster-inner {
+            position: relative;
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #ffffff;
+            box-shadow: 
+                0 10px 30px rgba(106, 27, 154, 0.08),
+                0 4px 10px rgba(0, 0, 0, 0.04),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform-style: preserve-3d;
+            will-change: transform, box-shadow;
+        }
+
+        /* 3D Hover Effect */
+        .poster-card:hover .poster-inner {
+            transform: translateY(-12px) rotateX(6deg) rotateY(-4deg) scale(1.03);
+            box-shadow: 
+                0 30px 60px rgba(106, 27, 154, 0.22),
+                0 15px 25px rgba(255, 64, 129, 0.18),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+        }
+
+        /* Active/Touch state for Mobile */
+        .poster-card:active .poster-inner {
+            transform: translateY(-6px) rotateX(3deg) rotateY(-2deg) scale(1.01);
+            box-shadow: 
+                0 20px 40px rgba(106, 27, 154, 0.18),
+                0 10px 15px rgba(255, 64, 129, 0.12);
+        }
+
+        .poster-inner img {
+            width: 100%;
+            height: auto; /* Allows the image to display fully without cropping */
+            display: block;
+            transition: transform 0.6s ease;
+            -webkit-touch-callout: none;
+            -webkit-user-drag: none;
+        }
+
+        .poster-card:hover .poster-inner img {
+            transform: scale(1.03); /* Subtle zoom on the image inside the 3D card */
+        }
+
+        /* ─── LIGHTBOX (CLICK TO ENLARGE) ─── */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+            animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            object-fit: contain;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.85); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 30px;
+            color: #ffffff;
+            font-size: 45px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10001;
+            line-height: 1;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .lightbox-close:hover {
+            color: #ff4081;
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        /* ─── CONTACT ─── */
+        .contact-box {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 50px 30px;
+            border-radius: 25px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 16px 45px rgba(106, 27, 154, 0.08);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .contact-box p {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+        .contact-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            display: block;
+            font-family: 'Playfair Display', serif;
+            transition: transform 0.3s;
+        }
+        .contact-number:hover {
+            transform: scale(1.04);
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            border-radius: 50%;
+            color: #6a1b9a;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+        }
+        .social-links a:hover {
+            background: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
+            color: #fff;
+            border-color: transparent;
+            transform: scale(1.1) rotate(4deg);
+            box-shadow: 0 8px 25px rgba(255, 64, 129, 0.35);
+        }
+        .social-links a:active {
+            transform: scale(0.92);
+        }
+        .social-links svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+        }
+
+        /* ─── FLOATING WHATSAPP BUTTON (ENLARGED 2x from 45px = 90px) ─── */
+        .whatsapp-float {
+            position: fixed;
+            width: 90px; 
+            height: 90px;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366; /* WhatsApp Green */
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            z-index: 9999; /* Ensure it's above everything but below lightbox */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: bottom 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            text-decoration: none;
+            animation: pulse-green 2.5s infinite;
+        }
+        .whatsapp-float:hover {
+            background: #128C7E;
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.7);
+            color: #FFF;
+        }
+        .whatsapp-float:active {
+            transform: scale(0.95);
+        }
+        .whatsapp-float svg {
+            width: 50px; /* 25px * 2 */
+            height: 50px; /* 25px * 2 */
+            fill: currentColor;
+        }
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 25px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            text-align: center;
+            padding: 24px 20px;
+            font-size: 0.9rem;
+            color: #444;
+            border-top: 1px solid #e0e0e0;
+            margin-top: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ─── COOKIE BANNER ─── */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(20, 20, 30, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            color: #f0f0f0;
+            padding: 16px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            z-index: 9998; /* Below WhatsApp and Lightbox */
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 -6px 30px rgba(0, 0, 0, 0.2);
+            font-size: 0.9rem;
+            transition: transform 0.4s ease;
+        }
+        .cookie-banner.hidden {
+            transform: translateY(100%);
+            pointer-events: none;
+        }
+        .cookie-banner p {
+            flex: 1;
+            min-width: 180px;
+            margin: 0;
+            line-height: 1.5;
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+        .cookie-banner p a {
+            color: #ff80ab;
+            text-decoration: underline;
+            font-weight: 400;
+        }
+        .cookie-banner .cookie-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+        .cookie-banner .cookie-btn {
+            padding: 8px 24px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.3px;
+        }
+        .cookie-banner .cookie-btn-accept {
+            background: linear-gradient(135deg, #6a1b9a, #ff4081);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(255, 64, 129, 0.3);
+        }
+        .cookie-banner .cookie-btn-accept:hover {
+            transform: scale(1.04);
+            box-shadow: 0 6px 24px rgba(255, 64, 129, 0.4);
+        }
+        .cookie-banner .cookie-btn-accept:active {
+            transform: scale(0.95);
+        }
+        .cookie-banner .cookie-btn-decline {
+            background: rgba(255, 255, 255, 0.10);
+            color: #ccc;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .cookie-banner .cookie-btn-decline:hover {
+            background: rgba(255, 255, 255, 0.18);
+            color: #fff;
+        }
+
+        /* ─── RESPONSIVE BREAKPOINTS (CHROME, SAFARI, EDGE) ─── */
+        @media (max-width: 1024px) {
+            .poster-grid { column-count: 2; }
+        }
+
+        @media (max-width: 768px) {
+            .poster-grid { column-count: 1; }
+            nav {
+                padding: 12px 16px;
+                flex-direction: column;
+                align-items: center;
+            }
+            .logo {
+                font-size: 1.9rem;
+                margin-bottom: 4px;
+            }
+            .nav-links {
+                gap: 8px;
+                justify-content: center;
+            }
+            .nav-links li {
+                font-size: 0.8rem;
+                padding: 5px 12px;
+            }
+            .tab-content {
+                padding: 145px 12px 40px;
+            }
+            .hero {
+                padding: 30px 12px 30px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 0.95rem;
+                padding: 14px 18px;
+            }
+            .section-title {
+                font-size: 2rem;
+                margin-top: 40px;
+            }
+            .section-subtitle-center {
+                font-size: 0.9rem;
+                padding: 6px 14px;
+                margin: -20px auto 30px;
+            }
+            .contact-box {
+                padding: 36px 20px;
+            }
+            .contact-number {
+                font-size: 1.8rem;
+            }
+            .social-links a {
+                width: 52px;
+                height: 52px;
+            }
+            .social-links svg {
+                width: 24px;
+                height: 24px;
+            }
+            .cookie-banner {
+                padding: 14px 16px;
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+                font-size: 0.8rem;
+            }
+            .cookie-banner .cookie-actions {
+                justify-content: center;
+            }
+            .cookie-banner .cookie-btn {
+                padding: 6px 18px;
+                font-size: 0.8rem;
+            }
+            /* Adjust WhatsApp for Mobile */
+            .whatsapp-float {
+                width: 80px; /* Slightly smaller for mobile screens */
+                height: 80px;
+                bottom: 20px;
+                right: 20px;
+            }
+            .whatsapp-float svg {
+                width: 45px;
+                height: 45px;
+            }
+            .lightbox-close {
+                top: 15px;
+                right: 20px;
+                font-size: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.6rem;
+            }
+            .nav-links li {
+                font-size: 0.7rem;
+                padding: 4px 10px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 0.85rem;
+                padding: 12px 14px;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+            .contact-number {
+                font-size: 1.5rem;
+            }
+            .social-links a {
+                width: 46px;
+                height: 46px;
+            }
+            .social-links svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        /* ─── UTILITY ─── */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ─── HTTPS ENFORCEMENT ─── -->
+    <script>
+        (function enforceHttps() {
+            if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+                window.location.href = 'https://' + window.location.host + window.location.pathname + window.location.search;
+            }
+        })();
+    </script>
+
+    <!-- ─── BACKGROUND ─── -->
+    <div class="bg-image"></div>
+
+    <!-- ─── SPARKLE CANVAS ─── -->
+    <canvas id="sparkleCanvas"></canvas>
+
+    <!-- ─── NAV ─── -->
+    <nav>
+        <div class="logo">Heartfelt Home</div>
+        <ul class="nav-links">
+            <li onclick="openTab('homeTab', this)" class="active">Home</li>
+            <li onclick="openTab('contactTab', this)">Contact</li>
+        </ul>
+    </nav>
+
+    <!-- ─── HOME TAB ─── -->
+    <div id="homeTab" class="tab-content" style="display: block;">
+        <!-- HERO -->
+        <div class="hero">
+            <h1>Luxury In-Home Services</h1>
+            <p>Heartfelt Home provides professional mobile hair and nail services across Singapore, bringing haircuts, styling, colouring, treatments, manicures, and pedicures directly to your home for clean, convenient, and reliable salon care for all ages.</p>
+        </div>
+
+        <!-- UNIFIED SECTION: OUR SERVICE POSTERS -->
+        <h2 class="section-title">Our Service Posters</h2>
+        <p class="section-subtitle-center">Click on any poster to enlarge and view the full details.</p>
+        
+        <div class="poster-grid">
+            <!-- NEWEST POSTERS ADDED AT THE VERY TOP (30-32) -->
+            <!-- Poster 30 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_30.jpg" alt="French Gel Nail Extensions $168" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 31 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_31.jpg" alt="Gel Nail Extensions $168" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 32 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_32.jpg" alt="French Gel Nail Extensions $168" loading="lazy" />
+                </div>
+            </div>
+
+            <!-- PREVIOUS TOP POSTERS (25-29) -->
+            <!-- Poster 25 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_25.jpg" alt="Ombré Gelish Pedicure $85" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 26 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_26.jpg" alt="Ombré Gelish Manicure $75" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 27 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_27.jpg" alt="Ombré Gelish's Manicure $75" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 28 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_28.jpg" alt="Ombré Gelish's Manicure $75" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 29 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_29.jpg" alt="Gelish Manicure & Pedicure $129" loading="lazy" />
+                </div>
+            </div>
+
+            <!-- EXISTING POSTERS -->
+            <!-- Poster 1 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_1.jpg" alt="French Manicure" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 2 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_2.jpg" alt="Classic Manicure & Pedicure $89" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 3 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_3.jpg" alt="Gelish Pedicure $95" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 4 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_4.jpg" alt="Cateye Gelish Manicure $85" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 5 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_5.jpg" alt="Cateye Gelish $129" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 6 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_6.jpg" alt="Classic Manicure $70" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 7 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_7.jpg" alt="Elderly Manicure & Pedicure $120" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 8 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_8.jpg" alt="Ombré Gelish's $129" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 9 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_9.jpg" alt="Professional Nail Care for Men" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 10 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_10.jpg" alt="Man Manicure & Pedicure $95" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 11 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_11.jpg" alt="Men & Female Pedicure $115" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 12 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_12.jpg" alt="Men's Home Manicure & Pedicure $75" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 13 REMOVED -->
+            <!-- Poster 14 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_14.jpg" alt="Men's Manicure $75" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 15 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_15.jpg" alt="Men's Manicure & Pedicure $95" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 16 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_16.jpg" alt="Female Manicure $75" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 17 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_17.jpg" alt="Female Pedicure $80" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 18 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_18.jpg" alt="Pedicure Cut Ingrown Nail $139" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 19 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_19.jpg" alt="Men's Ingrown Nail Cut $139" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 20 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_20.jpg" alt="Men's Cracked Heel $139" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 21 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_21.jpg" alt="Lady's Ingrown Cut $139" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 22 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_22.jpg" alt="Pedicure Crack Heel $139" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 23 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_23.jpg" alt="Elderly Men Manicure Pedicure $95" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 24 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_24.jpg" alt="Elderly Man Nail Care Services $95" loading="lazy" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ─── CONTACT TAB ─── -->
+    <div id="contactTab" class="tab-content" style="display: none;">
+        <div class="contact-box">
+            <h2 class="section-title" style="margin-bottom: 16px; margin-top: 0;">Book Your Session</h2>
+            <p>Ready for a salon experience at home? Reach out to schedule your appointment today.</p>
+
+            <span class="contact-number">+65 9837 7306</span>
+
+            <p style="margin-bottom: 24px; font-size: 0.9rem;">Available on WhatsApp and Calls<br />Mon–Sun: 9:00 AM – 8:00 PM</p>
+
+            <div class="social-links">
+                <a href="https://wa.me/6598377306" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.423-.101.827z"/></svg>
+                </a>
+                <a href="#" title="Instagram" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        &copy; 2024 Heartfelt Home. All rights reserved.<br />
+        <span style="font-size: 0.8rem; color: #777;">Singapore Mobile Salon Services</span>
+    </footer>
+
+    <!-- ─── FLOATING WHATSAPP BUTTON ─── -->
+    <a href="https://wa.me/6598377306" class="whatsapp-float" id="whatsappFloat" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+    </a>
+
+    <!-- ─── LIGHTBOX MODAL ─── -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Enlarged Poster">
+    </div>
+
+    <!-- ─── COOKIE CONSENT BANNER ─── -->
+    <div id="cookieBanner" class="cookie-banner">
+        <p>
+            🍪 We use cookies to enhance your experience. By continuing, you agree to our
+            <a href="#" onclick="event.preventDefault(); alert('Privacy Policy: We use only essential cookies for site functionality.')">Privacy Policy</a>.
+        </p>
+        <div class="cookie-actions">
+            <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">Decline</button>
+            <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
+        </div>
+    </div>
+
+    <script>
+        // ─── COOKIE CONSENT ───
+        function setCookie(name, value, days) {
+            const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+            document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/; SameSite=Lax' + (location.protocol === 'https:' ? '; Secure' : '');
+        }
+
+        function getCookie(name) {
+            const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            return match ? decodeURIComponent(match[2]) : null;
+        }
+
+        function acceptCookies() {
+            setCookie('cookie_consent', 'accepted', 365);
+            document.getElementById('cookieBanner').classList.add('hidden');
+            updateWhatsAppPosition();
+        }
+
+        function declineCookies() {
+            setCookie('cookie_consent', 'declined', 30);
+            document.getElementById('cookieBanner').classList.add('hidden');
+            updateWhatsAppPosition();
+        }
+
+        // Check existing consent
+        (function initCookieBanner() {
+            const consent = getCookie('cookie_consent');
+            if (consent) {
+                document.getElementById('cookieBanner').classList.add('hidden');
+            }
+            updateWhatsAppPosition();
+        })();
+
+        // ─── DYNAMIC WHATSAPP POSITIONING (PREVENTS COOKIE BANNER OVERLAP) ───
+        function updateWhatsAppPosition() {
+            const cookieBanner = document.getElementById('cookieBanner');
+            const whatsappBtn = document.getElementById('whatsappFloat');
+            if (!cookieBanner.classList.contains('hidden')) {
+                // Cookie banner is visible, calculate its height and push button up
+                const bannerHeight = cookieBanner.offsetHeight;
+                whatsappBtn.style.bottom = (bannerHeight + 20) + 'px';
+            } else {
+                // Cookie banner is hidden, reset to default based on screen size
+                if (window.innerWidth <= 768) {
+                    whatsappBtn.style.bottom = '20px';
+                } else {
+                    whatsappBtn.style.bottom = '30px';
+                }
+            }
+        }
+
+        // Update position on load and resize
+        window.addEventListener('resize', updateWhatsAppPosition);
+        window.addEventListener('load', updateWhatsAppPosition);
+
+        // ─── TAB SWITCHING ───
+        function openTab(tabName, element) {
+            const tabs = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = 'none';
+            }
+
+            const links = document.querySelectorAll('.nav-links li');
+            for (let i = 0; i < links.length; i++) {
+                links[i].classList.remove('active');
+            }
+
+            document.getElementById(tabName).style.display = 'block';
+            element.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ─── LIGHTBOX (CLICK TO ENLARGE) ───
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.lightbox-close');
+
+        // Add click event to all poster images
+        document.querySelectorAll('.poster-card img').forEach(img => {
+            img.addEventListener('click', function() {
+                lightbox.style.display = 'block';
+                lightboxImg.src = this.src;
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            });
+        });
+
+        // Close lightbox when clicking the X button
+        closeBtn.addEventListener('click', function() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore background scrolling
+        });
+
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // ─── SPARKLE CANVAS ───
+        const canvas = document.getElementById('sparkleCanvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        const sparkles = [];
+
+        class Sparkle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.life = Math.random() * 100 + 50;
+                this.maxLife = this.life;
+                this.alpha = 0;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.life--;
+
+                if (this.maxLife - this.life < 20) {
+                    this.alpha += 0.05;
+                } else if (this.life < 20) {
+                    this.alpha -= 0.05;
+                }
+
+                if (this.alpha < 0) this.alpha = 0;
+                if (this.alpha > 0.8) this.alpha = 0.8;
+
+                if (this.life <= 0 || this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+                    this.reset();
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 255, 255, ' + this.alpha + ')';
+                ctx.fill();
+            }
+        }
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+
+            const target = window.innerWidth < 768 ? 30 : 75;
+            while (sparkles.length < target) {
+                sparkles.push(new Sparkle());
+            }
+            while (sparkles.length > target) {
+                sparkles.pop();
+            }
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function animateSparkles() {
+            ctx.clearRect(0, 0, width, height);
+            for (let i = 0; i < sparkles.length; i++) {
+                sparkles[i].update();
+                sparkles[i].draw();
+            }
+            requestAnimationFrame(animateSparkles);
+        }
+        animateSparkles();
+    </script>
+</body>
+</html>
