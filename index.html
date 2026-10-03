@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     
     <!-- ========================================== -->
-    <!-- 7. ANALYTICS TRACKING (GA4) WITH CONSENT MODE -->
+    <!-- 7. ANALYTICS TRACKING (GOOGLE ADS ONLY) WITH CONSENT MODE -->
     <!-- ========================================== -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!-- TODO: Replace 'G-XXXXXXXXXX' with your actual Measurement ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- Google tag (gtag.js) - Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18492550691"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -23,7 +22,9 @@
       });
 
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      
+      // Configure Google Ads
+      gtag('config', 'AW-18492550691');
     </script>
 
     <!-- ========================================== -->
@@ -1095,14 +1096,14 @@
     </div>
 
     <script>
-        // ─── GOOGLE ANALYTICS EVENT TRACKER HELPER ───
+        // ─── GOOGLE ADS EVENT TRACKER HELPER ───
         function trackEvent(eventName, params) {
             if (typeof gtag === 'function') {
                 gtag('event', eventName, params);
             }
         }
 
-        // ─── COOKIE CONSENT & GA4 CONSENT MODE UPDATE ───
+        // ─── COOKIE CONSENT & GOOGLE ADS CONSENT MODE UPDATE ───
         function setCookie(name, value, days) {
             const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
             document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/; SameSite=Lax' + (location.protocol === 'https:' ? '; Secure' : '');
@@ -1118,7 +1119,7 @@
             document.getElementById('cookieBanner').classList.add('hidden');
             updateWhatsAppPosition();
             
-            // Update GA4 Consent Mode to granted
+            // Update Google Ads Consent Mode to granted
             if (typeof gtag === 'function') {
                 gtag('consent', 'update', {
                     'ad_storage': 'granted',
@@ -1134,14 +1135,14 @@
             document.getElementById('cookieBanner').classList.add('hidden');
             updateWhatsAppPosition();
             
-            // GA4 Consent Mode remains denied (default state)
+            // Google Ads Consent Mode remains denied (default state)
         }
 
         (function initCookieBanner() {
             const consent = getCookie('cookie_consent');
             if (consent) {
                 document.getElementById('cookieBanner').classList.add('hidden');
-                // If consent was previously given, update GA4 immediately
+                // If consent was previously given, update Google Ads immediately
                 if (consent === 'accepted' && typeof gtag === 'function') {
                     gtag('consent', 'update', {
                         'ad_storage': 'granted',
