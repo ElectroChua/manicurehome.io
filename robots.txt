@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://manicurehome.com/sitemap.xml
