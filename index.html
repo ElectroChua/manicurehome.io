@@ -4,41 +4,121 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     
-    <!-- SEO OPTIMIZATION: Updated Title, Description, and Keywords -->
-    <title>Manicure Home | Mobile Manicure, Pedicure & Foot Care in Singapore</title>
-    <meta name="description" content="Manicure Home provides top-rated mobile manicure and pedicure services in Singapore. Specializing in elderly care, cracked heels treatment, ingrown toenail relief, callus & nail fungus treatment, and luxury at-home nail extensions.">
-    <meta name="keywords" content="Manicure Singapore, Pedicure Singapore, Mobile Manicure, Home Manicure, Elderly Manicure, Cracked Heels Treatment, Ingrown Toenail, Nail Fungus Treatment, Manicure HouseCall, Nail Extensions Singapore, Foot Specialist Singapore">
+    <!-- ========================================== -->
+    <!-- 7. ANALYTICS TRACKING (GA4) WITH CONSENT MODE -->
+    <!-- ========================================== -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- TODO: Replace 'G-XXXXXXXXXX' with your actual Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      
+      // Default consent to denied for GDPR/PDPA compliance
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
+      });
 
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💅</text></svg>" />
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💅</text></svg>" />
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- ========================================== -->
+    <!-- 2. CORE HTML META TAGS -->
+    <!-- ========================================== -->
+    <title>Manicure Home | Mobile Manicure, Pedicure & Foot Care in Singapore</title>
+    <meta name="description" content="Top-rated mobile manicure & pedicure services in Singapore. Specializing in elderly care, cracked heels, ingrown toenails, callus & nail fungus treatment, and luxury at-home nail extensions.">
+    <meta name="keywords" content="Manicure Singapore, Pedicure Singapore, Mobile Manicure, Home Manicure, Elderly Manicure, Cracked Heels Treatment, Ingrown Toenail, Nail Fungus Treatment, Manicure HouseCall, Nail Extensions Singapore, Foot Specialist Singapore, Callus Treatment">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Manicure Home">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://manicure.com.sg/">
+    <meta property="og:title" content="Manicure Home | Mobile Manicure & Foot Care Singapore">
+    <meta property="og:description" content="Professional mobile manicure, pedicure, and foot care services at your doorstep. Book today for elderly care, cracked heels, and ingrown toenail treatments.">
+    <meta property="og:image" content="https://manicure.com.sg/backgound.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://manicure.com.sg/">
+    <meta property="twitter:title" content="Manicure Home | Mobile Manicure & Foot Care Singapore">
+    <meta property="twitter:description" content="Professional mobile manicure, pedicure, and foot care services at your doorstep. Book today for elderly care, cracked heels, and ingrown toenail treatments.">
+    <meta property="twitter:image" content="https://manicure.com.sg/backgound.jpeg">
+
+    <!-- ========================================== -->
+    <!-- 4. FAVICON & APP ICONS -->
+    <!-- ========================================== -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💅</text></svg>">
+    <link rel="alternate icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💅</text></svg>">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#6a1b9a">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="msapplication-TileColor" content="#6a1b9a">
+    <meta name="theme-color" content="#ffffff">
 
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- SEO OPTIMIZATION: Structured Data (JSON-LD) for Local Business -->
+    <!-- ========================================== -->
+    <!-- 5. SCHEMA.ORG STRUCTURED DATA (JSON-LD) -->
+    <!-- ========================================== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "HealthAndBeautyBusiness",
+      "@type": ["HealthAndBeautyBusiness", "NailSalon"],
       "name": "Manicure Home",
-      "image": "backgound.jpeg",
-      "url": "https://manicure.com.sg",
+      "image": "https://manicure.com.sg/backgound.jpeg",
+      "url": "https://manicure.com.sg/",
       "telephone": "+6588497676",
+      "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
+        "addressCountry": "SG",
         "addressLocality": "Singapore"
       },
-      "description": "Mobile manicure, pedicure, and foot care services in Singapore. Specializing in elderly care, cracked heels treatment, ingrown toenails, and nail extensions.",
-      "priceRange": "$$",
-      "openingHours": "Mo-Su 09:00-20:00",
-      "makesOffer": [
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cracked Heels Treatment"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ingrown Toenail Treatment"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Elderly Manicure and Pedicure In Home"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Callus & Nail Fungus Treatment"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mobile Manicure and Pedicure"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Nail Extensions"}}
-      ]
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "1.3521",
+        "longitude": "103.8198"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "09:00",
+          "closes": "20:00"
+        }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+6588497676",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Chinese"]
+      },
+      "sameAs": [
+        "https://wa.me/6588497676"
+      ],
+      "description": "Manicure Home provides top-rated mobile manicure and pedicure services in Singapore. Specializing in elderly care, cracked heels treatment, ingrown toenail relief, callus & nail fungus treatment, and luxury at-home nail extensions.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Singapore"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Mobile Manicure & Pedicure Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cracked Heels Treatment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ingrown Toenail Treatment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Elderly Manicure and Pedicure In Home" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Callus & Nail Fungus Treatment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile Manicure and Pedicure" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nail Extensions" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Foot Specialist Consultation" } }
+        ]
+      }
     }
     </script>
 
@@ -973,7 +1053,7 @@
             <p style="margin-bottom: 24px; font-size: 0.9rem;">Available on WhatsApp and Calls<br />Mon–Sun: 9:00 AM – 8:00 PM</p>
 
             <div class="social-links">
-                <a href="https://wa.me/6588497676" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
+                <a href="https://wa.me/6588497676" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp" class="track-whatsapp">
                     <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.423-.101.827z"/></svg>
                 </a>
                 <a href="#" title="Instagram" aria-label="Instagram">
@@ -990,7 +1070,7 @@
     </footer>
 
     <!-- ─── FLOATING WHATSAPP BUTTON ─── -->
-    <a href="https://wa.me/6588497676" class="whatsapp-float" id="whatsappFloat" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/6588497676" class="whatsapp-float track-whatsapp" id="whatsappFloat" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
         <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
             <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
         </svg>
@@ -1015,7 +1095,14 @@
     </div>
 
     <script>
-        // ─── COOKIE CONSENT ───
+        // ─── GOOGLE ANALYTICS EVENT TRACKER HELPER ───
+        function trackEvent(eventName, params) {
+            if (typeof gtag === 'function') {
+                gtag('event', eventName, params);
+            }
+        }
+
+        // ─── COOKIE CONSENT & GA4 CONSENT MODE UPDATE ───
         function setCookie(name, value, days) {
             const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
             document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/; SameSite=Lax' + (location.protocol === 'https:' ? '; Secure' : '');
@@ -1030,18 +1117,39 @@
             setCookie('cookie_consent', 'accepted', 365);
             document.getElementById('cookieBanner').classList.add('hidden');
             updateWhatsAppPosition();
+            
+            // Update GA4 Consent Mode to granted
+            if (typeof gtag === 'function') {
+                gtag('consent', 'update', {
+                    'ad_storage': 'granted',
+                    'ad_user_data': 'granted',
+                    'ad_personalization': 'granted',
+                    'analytics_storage': 'granted'
+                });
+            }
         }
 
         function declineCookies() {
             setCookie('cookie_consent', 'declined', 30);
             document.getElementById('cookieBanner').classList.add('hidden');
             updateWhatsAppPosition();
+            
+            // GA4 Consent Mode remains denied (default state)
         }
 
         (function initCookieBanner() {
             const consent = getCookie('cookie_consent');
             if (consent) {
                 document.getElementById('cookieBanner').classList.add('hidden');
+                // If consent was previously given, update GA4 immediately
+                if (consent === 'accepted' && typeof gtag === 'function') {
+                    gtag('consent', 'update', {
+                        'ad_storage': 'granted',
+                        'ad_user_data': 'granted',
+                        'ad_personalization': 'granted',
+                        'analytics_storage': 'granted'
+                    });
+                }
             }
             updateWhatsAppPosition();
         })();
@@ -1080,6 +1188,12 @@
             document.getElementById(tabName).style.display = 'block';
             element.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Track tab switch event
+            trackEvent('tab_switch', {
+                'event_category': 'engagement',
+                'event_label': tabName
+            });
         }
 
         // ─── LIGHTBOX ───
@@ -1092,6 +1206,12 @@
                 lightbox.style.display = 'block';
                 lightboxImg.src = this.src;
                 document.body.style.overflow = 'hidden';
+                
+                // Track poster view event
+                trackEvent('view_poster', {
+                    'event_category': 'engagement',
+                    'event_label': this.alt || 'Poster'
+                });
             });
         });
 
@@ -1106,6 +1226,29 @@
                 document.body.style.overflow = 'auto';
             }
         });
+
+        // ─── EVENT TRACKING FOR LEADS (WHATSAPP & CALLS) ───
+        document.querySelectorAll('.track-whatsapp').forEach(btn => {
+            btn.addEventListener('click', function() {
+                trackEvent('generate_lead', {
+                    'event_category': 'conversion',
+                    'event_label': 'WhatsApp Click',
+                    'value': 1
+                });
+            });
+        });
+
+        // Track phone number clicks
+        const phoneNumber = document.querySelector('.contact-number');
+        if (phoneNumber) {
+            phoneNumber.addEventListener('click', function() {
+                trackEvent('generate_lead', {
+                    'event_category': 'conversion',
+                    'event_label': 'Phone Call Click',
+                    'value': 1
+                });
+            });
+        }
 
         // ─── SPARKLE CANVAS ───
         const canvas = document.getElementById('sparkleCanvas');
