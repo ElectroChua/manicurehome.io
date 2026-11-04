@@ -37,6 +37,11 @@
       gtag('config', 'AW-18492550691');
     </script>
 
+    <!-- Event snippet for Contact conversion page -->
+    <script>
+      gtag('event', 'conversion', {'send_to': 'AW-18492550691/ehVeCJuz45gdEKPc9_FE'});
+    </script>
+
     <!-- ========================================== -->
     <!-- 2. CORE HTML META TAGS & CANONICAL -->
     <!-- ========================================== -->
@@ -488,6 +493,7 @@
             display: block;
             font-family: 'Playfair Display', serif;
             transition: transform 0.3s;
+            cursor: pointer;
         }
         .contact-number:hover {
             transform: scale(1.04);
@@ -1374,6 +1380,10 @@
                     'event_label': 'WhatsApp Click',
                     'value': 1
                 });
+                // Fire Google Ads Conversion
+                if (typeof gtag === 'function') {
+                    gtag('event', 'conversion', {'send_to': 'AW-18492550691/ehVeCJuz45gdEKPc9_FE'});
+                }
             });
         });
 
@@ -1386,6 +1396,10 @@
                     'event_label': 'Phone Call Click',
                     'value': 1
                 });
+                // Fire Google Ads Conversion
+                if (typeof gtag === 'function') {
+                    gtag('event', 'conversion', {'send_to': 'AW-18492550691/ehVeCJuz45gdEKPc9_FE'});
+                }
             });
         }
 
